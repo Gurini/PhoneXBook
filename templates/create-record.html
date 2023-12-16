@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+
+    <body>
+        <div class="container bg-dark shadow-md p-5 form-layout">
+
+            <h3> Create Record </h3>
+
+            <hr>
+            <br>
+
+            <form method="POST" autocomplete="off">
+
+                {% csrf_token %}
+
+                {{form.first_name|as_crispy_field}}
+                
+                <br>
+
+                {{form.last_name|as_crispy_field}}
+                
+                <br>
+
+                {{form.nick_name|as_crispy_field}}
+                
+                <br>
+
+                {{form.phone|as_crispy_field}}
+                
+                <br>
+
+                {{form.twitter|as_crispy_field}}
+                
+                <br>
+
+                {{form.snapchat|as_crispy_field}}
+                
+                <br>
+
+                {{form.email|as_crispy_field}}
+                
+                <br>
+
+                {{form.address|as_crispy_field}}
+                
+                <br>
+
+                <button type="submit" class="btn btn-primary w-100 btn-block p-2">Create <i class="fa fa-check" aria-hidden="true"></i></button>
+                
+                <br> 
+                <br>
+
+                <a href="{% url 'dashboard' %}" class="btn btn-secondary w-100 btn-block p-2">Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+
+            </form>
+
+        </div>
+
+        <br>
+        
+    </body>
+
+
+
+
+
+{% endblock %}

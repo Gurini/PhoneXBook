@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+    <h4>Welcome to your daashboard {{user}}</h4>
+
+    <br>
+
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'create-record' %}">
+
+        <i class="fa fa-plus-circle" aria-hidden="true"></i> &nbsp; Create Record &nbsp; 
+    
+    </a>
+
+    <hr>
+
+
+    <table class="table table-dark table-hover">
+        
+        <thead class="table-light">
+
+            <tr>
+
+                <th scope="col">ID</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Nickname</th>
+                <th scope="col">Phone Number</th>
+
+                
+                <th scope="col">View</th>
+                
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% if record %}
+
+                {% for record in record %}
+
+                <tr>
+
+                    <td>{{record.id}}</td>
+
+                    <td>{{record.first_name}} {{record.last_name}}</td>
+
+                    <td>{{record.nick_name}}</td>
+
+                    <td>{{record.phone}}</td>
+
+                    <td><a href="{% url 'record' record.id %}" class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+
+                </tr>
+
+                {% endfor %}
+
+            {% endif %}
+
+        </tbody>
+
+    </table>
+
+    
+{% endblock %}
